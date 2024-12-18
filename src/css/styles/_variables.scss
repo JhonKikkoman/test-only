@@ -1,0 +1,20 @@
+:root {
+  --color-white: #ffffff;
+  --color-blue: #3877ee;
+  --color-blue-light: #42567a;
+  --color-border-blue-light: rgba(66, 86, 122, 0.5);
+  --color-circle-blue-dark: rgba(48, 62, 88, 0.5);
+  --color-pink-light: #ef5da8;
+  --color-gradient: #3877ee, #ef5da8;
+
+  --container-width: 1920px;
+  --container-padding-x: 40px;
+  --section-padding-y: 40px;
+
+  --font-family-base: 'PTSans-Regular', sans-serif;
+
+  --border: 1px solid var(--color-blue-light);
+  --border-gradient: 5px solid var();
+
+  --transition-duration: 0.4s;
+}

@@ -1,0 +1,34 @@
+@use '../mixins';
+@use '../media';
+
+.date-title {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 160px;
+  text-align: center;
+
+  @include mixins.abs-center;
+
+  @include media.mobile {
+    justify-content: space-between;
+    gap: 0px;
+
+    font-size: 46px;
+    line-height: 80px;
+    padding: 0 20px;
+
+    position: relative;
+  }
+
+  &__first {
+    color: var(--color-blue);
+  }
+
+  &__second {
+    color: var(--color-pink-light);
+  }
+}

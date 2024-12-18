@@ -1,0 +1,33 @@
+@use '../media';
+
+.swiper-slide {
+  &-content {
+    min-height: 135px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    user-select: none;
+
+    &__title {
+      font-size: 25px;
+      line-height: 30px;
+      color: var(--color-blue);
+
+      @include media.mobile {
+        font-size: 16px;
+      }
+    }
+
+    &__text {
+      font-size: 20px;
+      color: var(--color-blue-light);
+
+      @include media.mobile {
+        font-size: 14px;
+      }
+    }
+  }
+}

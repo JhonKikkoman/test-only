@@ -1,0 +1,39 @@
+@use './media';
+@use './mixins';
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+
+  @include media.mobile {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+.hidden-mobile {
+  @include media.mobile {
+    display: none !important;
+  }
+}
+
+.visually-hidden {
+  @include mixins.visually-hidden;
+}
+
+.visible-mobile {
+  @include media.mobile-above {
+    display: none !important;
+  }
+}
+
+.active-element {
+  @include mixins.visible-element;
+  @include mixins.abs-center;
+
+  & div:first-child {
+    @include mixins.abs-center;
+    translate: -5% -50%;
+  }
+}

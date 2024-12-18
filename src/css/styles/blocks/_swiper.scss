@@ -1,0 +1,55 @@
+@use '../media';
+
+.base-swiper {
+  &__wrapper {
+    padding: var(--section-padding-y) 0;
+    position: relative;
+
+    @include media.mobile {
+      padding: 0 20px 50px;
+    }
+  }
+}
+
+// inner styles of Swiper
+.swiper-wrapper {
+  @include media.mobile {
+    height: 135px !important;
+  }
+}
+
+.swiper-pagination {
+  --swiper-theme-color: var(--color-blue-light);
+  position: static !important;
+  margin-top: 60px;
+}
+
+.custom-button-prev,
+.custom-button-next {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: var(--color-blue);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+}
+
+.custom-button-next {
+  right: -50px;
+}
+
+.custom-button-prev {
+  left: -60px;
+  & svg:first-child {
+    rotate: 180deg;
+  }
+}

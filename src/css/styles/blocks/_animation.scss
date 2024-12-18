@@ -1,0 +1,64 @@
+@use '../mixins';
+@use '../utils';
+@use '../media';
+
+.animation {
+  width: 530px;
+  height: 530px;
+
+  @include mixins.abs-center;
+  z-index: 1;
+
+  @include media.mobile {
+    width: 100%;
+    height: auto;
+  }
+
+  &__circle-list {
+    width: 100%;
+    height: 100%;
+    border: var(--border);
+    border-radius: 50%;
+
+    @include media.mobile {
+      display: none;
+    }
+  }
+
+  &__circle-item {
+    width: 6px;
+    height: 6px;
+    background-color: #42567a;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include mixins.abs-center;
+
+    & div:first-child {
+      display: none;
+    }
+
+    &:hover {
+      width: 56px;
+      height: 56px;
+      background: var(--color-white);
+      border: 1px solid var(--color-circle-blue-dark);
+      transition-duration: var(--transition-duration);
+
+      & div:first-child {
+        display: block;
+        @include mixins.abs-center;
+      }
+
+      & span:nth-of-type(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+// mobile element
+.category {
+  padding: 0 20px 0 15px;
+  margin-bottom: 45px;
+}

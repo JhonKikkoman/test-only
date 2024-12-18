@@ -1,0 +1,60 @@
+@use '../mixins';
+@use '../media';
+
+.date-navigation {
+  width: 120px;
+  margin-top: 260px;
+
+  @include media.mobile {
+    margin: 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 35px;
+    left: 20px;
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-blue-light);
+    margin-bottom: 24px;
+
+    @include media.mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__wrapper-button {
+    display: inline-flex;
+    gap: 20px;
+
+    @include media.mobile {
+      gap: 10px;
+    }
+
+    &-icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--color-blue-light);
+      border-radius: 50%;
+
+      position: relative;
+
+      @include media.mobile {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    & button:first-child {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__icon {
+    @include mixins.abs-center;
+
+    color: var(--color-blue-light);
+  }
+}
