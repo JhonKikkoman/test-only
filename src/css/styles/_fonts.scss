@@ -1,8 +1,9 @@
-@import url('./fonts/PTSans-Regular.woff');
+@import url('../fonts/PTSans-Regular.woff');
+@import url('../fonts/PTSans-Bold.woff');
 
 @font-face {
   font-family: 'PTSans-Regular';
-  src: url('./fonts/PTSans-Regular.woff') format('woff');
+  src: url('../fonts/PTSans-Regular.woff') format('woff');
 
   font-weight: 500;
   font-style: normal;
@@ -10,7 +11,7 @@
 
 @font-face {
   font-family: 'PTSans-Bold';
-  src: url('./fonts/PTSans-Bold.woff') format('woff');
+  src: url('../fonts/PTSans-Bold.woff') format('woff');
 
   font-weight: 700;
   font-style: normal;

@@ -6,10 +6,10 @@
 @use './styles/utils';
 @use './styles/variables';
 
-@use './styles/blocks/presentation';
-@use './styles/blocks/date-title';
-@use './styles/blocks/date-navigation';
-@use './styles/blocks/animation';
-@use './styles/blocks/content';
-@use './styles/blocks/swiper';
-@use './styles/blocks/swiper-slide';
+@use './styles/blocks/Presentation/presentation';
+@use './styles/blocks/Presentation/YearAnimation/date-title';
+@use './styles/blocks/Presentation/CircleNavigation/date-navigation';
+@use './styles/blocks/Presentation/CircleAnimation/animation';
+@use './styles/blocks/Presentation/CircleAnimation/content';
+@use './styles/blocks/Presentation/Swiper/swiper';
+@use './styles/blocks/Presentation/Swiper/swiper-slide';

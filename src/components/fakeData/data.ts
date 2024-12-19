@@ -1,4 +1,4 @@
-export type factsAarrT = { year: number; text: string };
+export type factsArrT = { year: number; text: string };
 
 export interface IDataArr {
   numSlide: number;
@@ -7,7 +7,7 @@ export interface IDataArr {
     firstDate: number;
     secondDate: number;
   };
-  facts: factsAarrT[];
+  facts: factsArrT[];
 }
 
 export const arr: IDataArr[] = [

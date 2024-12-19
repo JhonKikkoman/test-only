@@ -7,7 +7,7 @@ import Swiper from './Swiper';
 import YearsAnimation from './YearsAnimation';
 
 export default function Presentation(): React.JSX.Element {
-  const [slide, setSlide] = useState<number>(1);
+  const [selectedSlide, setSelectedSlide] = useState<number>(1);
 
   return (
     <section className="section container">
@@ -16,17 +16,21 @@ export default function Presentation(): React.JSX.Element {
           <h2 className="presentation__title">Исторические даты</h2>
         </header>
         <div className="presentation__body">
-          <CircleAnimation dataArr={arr} slide={slide} setSlide={setSlide} />
-          <YearsAnimation dataArr={arr} numSlide={slide} />
+          <CircleAnimation
+            dataArr={arr}
+            slide={selectedSlide}
+            setSlide={setSelectedSlide}
+          />
+          <YearsAnimation dataArr={arr} numSlide={selectedSlide} />
           <div className="divider visible-mobile"></div>
           <CircleNavigation
             total={arr.length}
-            slide={slide}
-            setSlide={setSlide}
+            slide={selectedSlide}
+            setSlide={setSelectedSlide}
           />
         </div>
         <div className="corusel">
-          <Swiper numSlide={slide} />
+          <Swiper numSlide={selectedSlide} />
         </div>
       </div>
     </section>

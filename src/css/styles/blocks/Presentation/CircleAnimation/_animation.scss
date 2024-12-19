@@ -1,6 +1,6 @@
-@use '../mixins';
-@use '../utils';
-@use '../media';
+@use '../../../mixins';
+@use '../../../utils';
+@use '../../../media';
 
 .animation {
   width: 530px;
@@ -26,8 +26,8 @@
   }
 
   &__circle-item {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: #42567a;
     border-radius: 50%;
     cursor: pointer;

@@ -1,5 +1,11 @@
 import { gsap } from 'gsap';
-import React, { SetStateAction, useEffect, useRef, useState } from 'react';
+import React, {
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { IDataArr } from '../../../fakeData/data';
 
@@ -11,9 +17,10 @@ interface IProp {
   setSlide: React.Dispatch<SetStateAction<number>>;
 }
 
+type slideObj = IDataArr | string;
+
 export default function CircleAnimation({ dataArr, slide, setSlide }: IProp) {
   const [angle, setAngle] = useState<number>(0);
-  const [mobileHint, setMobileHint] = useState('');
   const containerRef = useRef<HTMLUListElement | null>(null);
   const pointsRef = useRef<pointRef[]>([]);
 
@@ -30,6 +37,15 @@ export default function CircleAnimation({ dataArr, slide, setSlide }: IProp) {
     });
     setAngle(-newAngle);
   };
+
+  const currentHint = useMemo(() => {
+    const currentObjSlide: slideObj =
+      dataArr.find(el => el.numSlide === slide) ?? '';
+    if (typeof currentObjSlide === 'object' && 'hint' in currentObjSlide) {
+      return currentObjSlide.hint;
+    }
+    return currentObjSlide;
+  }, [slide]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -48,8 +64,6 @@ export default function CircleAnimation({ dataArr, slide, setSlide }: IProp) {
   }, []);
 
   useEffect(() => {
-    const currentHint = dataArr.filter(el => el.numSlide === slide)[0];
-    setMobileHint(currentHint.hint);
     calcRotation(slide);
   }, [slide]);
 
@@ -78,7 +92,7 @@ export default function CircleAnimation({ dataArr, slide, setSlide }: IProp) {
         ))}
       </ul>
       <div className="category visible-mobile">
-        <span className="content__slide-hint">{mobileHint}</span>
+        <span className="content__slide-hint">{currentHint}</span>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper as BaseSwiper, SwiperSlide } from 'swiper/react';
 
-import { arr, factsAarrT } from '../../../fakeData/data';
+import { arr, IDataArr } from '../../../fakeData/data';
 // @ts-expect-error no types
 import 'swiper/css';
 // @ts-expect-error no types
@@ -16,10 +16,19 @@ interface IProp {
   numSlide: number;
 }
 
+type slideObj = IDataArr | [];
+
 export default function Swiper({ numSlide }: IProp): React.JSX.Element {
-  const [factsArr, setFactsArr] = useState<factsAarrT[]>([]);
   const [isLastSlide, setIsLastSlide] = useState(false);
   const [isFistSlide, setIsFirstSlide] = useState(true);
+
+  const factsArr = useMemo(() => {
+    const currentSlideObj: slideObj =
+      arr.find(el => el.numSlide === numSlide) ?? [];
+    if ('facts' in currentSlideObj) {
+      return currentSlideObj.facts;
+    }
+  }, [numSlide]);
 
   const handleSlideChange = (swiper: BasicSwiper) => {
     if (swiper.isBeginning) {
@@ -41,10 +50,6 @@ export default function Swiper({ numSlide }: IProp): React.JSX.Element {
     },
   };
 
-  useEffect(() => {
-    const currentObjSlide = arr.filter(el => el.numSlide === numSlide)[0];
-    setFactsArr(currentObjSlide.facts);
-  }, [numSlide]);
   return (
     <div className="base-swiper container">
       <div className="base-swiper__wrapper">
@@ -89,7 +94,7 @@ export default function Swiper({ numSlide }: IProp): React.JSX.Element {
           onSlideChange={handleSlideChange}
           loop={false}
         >
-          {factsArr.map((el, index) => (
+          {factsArr?.map((el, index) => (
             <SwiperSlide key={`${el.year}_${index}`}>
               <div className="swiper-slide-content">
                 <h4 className="swiper-slide-content__title">{el.year}</h4>
